@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Wedding Website Poster</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root{--emerald:#0f3d33;--emerald-2:#0b2e26;--gold:#c09a52;--gold-light:#e6cf9a;--ivory:#faf6ee;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#222}
+  body{display:flex;justify-content:center}
+  .poster{
+    width:1080px;height:1350px;position:relative;overflow:hidden;color:var(--ivory);
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(192,154,82,.22), transparent 55%),
+      radial-gradient(ellipse at 50% 100%, rgba(192,154,82,.15), transparent 50%),
+      linear-gradient(160deg,var(--emerald) 0%,var(--emerald-2) 100%);
+    font-family:'Cormorant Garamond',serif;
+  }
+  /* geometric pattern */
+  .poster::before{content:"";position:absolute;inset:0;opacity:.07;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cpath d='M40 0L80 40L40 80L0 40Z M40 14L66 40L40 66L14 40Z' fill='none' stroke='%23e6cf9a' stroke-width='1.2'/%3E%3C/svg%3E");}
+  .frame{position:absolute;inset:34px;border:2px solid var(--gold);border-radius:6px}
+  .frame::after{content:"";position:absolute;inset:10px;border:1px solid rgba(230,207,154,.45);border-radius:4px}
+  .corner{position:absolute;width:90px;height:90px}
+  .corner path{fill:none;stroke:var(--gold);stroke-width:2}
+  .tl{top:22px;left:22px}.tr{top:22px;right:22px;transform:scaleX(-1)}
+  .bl{bottom:22px;left:22px;transform:scaleY(-1)}.br{bottom:22px;right:22px;transform:scale(-1)}
+
+  .content{position:relative;z-index:2;height:100%;padding:80px 100px 70px;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .bismi{font-family:'Cinzel',serif;letter-spacing:.45em;font-size:22px;color:var(--gold-light)}
+  .script{font-family:'Great Vibes',cursive;font-size:96px;line-height:1;color:var(--gold-light);margin-top:26px;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+  h1{font-family:'Cinzel',serif;font-weight:700;font-size:66px;letter-spacing:.06em;line-height:1.08;margin-top:8px;
+     background:linear-gradient(180deg,#f3e3b8 0%,#c09a52 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .divider{display:flex;align-items:center;gap:16px;margin:26px 0 22px;color:var(--gold)}
+  .divider span{width:150px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+  .divider span:last-child{transform:scaleX(-1)}
+  .tag{font-style:italic;font-size:32px;color:#efe6d2;max-width:760px;line-height:1.3}
+
+  .mid{display:flex;align-items:center;gap:56px;margin-top:34px;margin-bottom:40px}
+  .phone{width:236px;height:430px;border-radius:38px;background:#111;padding:12px;box-shadow:0 30px 60px rgba(0,0,0,.45),0 0 0 2px var(--gold);flex-shrink:0}
+  .screen{width:100%;height:100%;border-radius:28px;background:var(--ivory);color:var(--emerald);overflow:hidden;display:flex;flex-direction:column;align-items:center;padding:34px 16px 0;position:relative}
+  .screen .s1{font-family:'Cinzel',serif;font-size:10px;letter-spacing:.3em;color:var(--gold)}
+  .screen .s2{font-family:'Great Vibes',cursive;font-size:44px;line-height:1.05;margin-top:14px}
+  .screen .s3{font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;margin-top:10px}
+  .screen .count{display:flex;gap:8px;margin-top:16px}
+  .screen .count div{background:var(--emerald);color:var(--gold-light);border-radius:8px;width:44px;padding:6px 0;font-family:'Cinzel',serif;font-size:16px}
+  .screen .count small{display:block;font-size:7px;letter-spacing:.1em;color:#d8ccb0}
+  .screen .btn{margin-top:22px;background:var(--gold);color:#fff;font-family:'Cinzel',serif;font-size:11px;letter-spacing:.2em;padding:9px 22px;border-radius:30px}
+  .screen .arch{position:absolute;bottom:0;left:0;right:0;height:100px;background:var(--emerald);border-radius:110px 120px 0 0;display:flex;align-items:center;justify-content:center;color:var(--gold-light);font-family:'Cinzel',serif;font-size:10px;letter-spacing:.25em}
+
+  ul.features{list-style:none;text-align:left;display:grid;gap:17px}
+  ul.features li{font-size:29px;font-weight:600;display:flex;align-items:center;gap:16px;color:#f5eedd}
+  ul.features li::before{content:"";width:13px;height:13px;transform:rotate(45deg);background:var(--gold);flex-shrink:0;box-shadow:0 0 0 4px rgba(192,154,82,.25)}
+
+  .cta{margin-top:auto;display:flex;flex-direction:column;align-items:center}
+  .cta .lbl{font-family:'Cinzel',serif;letter-spacing:.35em;font-size:22px;color:var(--gold-light)}
+  .phone-no{margin-top:14px;display:flex;align-items:center;gap:20px;background:linear-gradient(180deg,#e9d39c,#b98f45);color:var(--emerald-2);
+    padding:18px 54px;border-radius:70px;font-family:'Cinzel',serif;font-weight:700;font-size:58px;letter-spacing:.06em;box-shadow:0 14px 34px rgba(0,0,0,.35)}
+  .phone-no svg{width:46px;height:46px}
+  .cta .sub{margin-top:16px;font-size:24px;font-style:italic;color:#d9cfb8}
+</style>
+</head>
+<body>
+<div class="poster" id="poster">
+  <div class="frame"></div>
+  <svg class="corner tl" viewBox="0 0 90 90"><path d="M2 88V30Q2 2 30 2H88M14 88V36Q14 14 36 14H88M30 30m-6 0a6 6 0 1 0 12 0a6 6 0 1 0-12 0"/></svg>
+  <svg class="corner tr" viewBox="0 0 90 90"><path d="M2 88V30Q2 2 30 2H88M14 88V36Q14 14 36 14H88M30 30m-6 0a6 6 0 1 0 12 0a6 6 0 1 0-12 0"/></svg>
+  <svg class="corner bl" viewBox="0 0 90 90"><path d="M2 88V30Q2 2 30 2H88M14 88V36Q14 14 36 14H88M30 30m-6 0a6 6 0 1 0 12 0a6 6 0 1 0-12 0"/></svg>
+  <svg class="corner br" viewBox="0 0 90 90"><path d="M2 88V30Q2 2 30 2H88M14 88V36Q14 14 36 14H88M30 30m-6 0a6 6 0 1 0 12 0a6 6 0 1 0-12 0"/></svg>
+
+  <div class="content">
+    <div class="bismi">✦ YOUR LOVE STORY ONLINE ✦</div>
+    <div class="script">Elegant</div>
+    <h1>WEDDING<br>INVITATION WEBSITES</h1>
+    <div class="divider"><span></span>❖<span></span></div>
+    <p class="tag">A beautiful, personalised website for your Nikkah &amp; Wedding — share it with everyone in one link</p>
+
+    <div class="mid">
+      <div class="phone"><div class="screen">
+        <div class="s1">NIKKAH INVITATION</div>
+        <div class="s2">Aisha<br>&amp; Rayan</div>
+        <div class="s3">SAVE THE DATE</div>
+        <div class="count"><div>12<small>DAYS</small></div><div>08<small>HRS</small></div><div>45<small>MIN</small></div></div>
+        <div class="btn">RSVP</div>
+        <div class="arch">VENUE · MAP</div>
+      </div></div>
+      <ul class="features">
+        <li>Couple &amp; Family Details</li>
+        <li>Event Schedule &amp; Countdown</li>
+        <li>Venue with Google Maps</li>
+        <li>Online RSVP</li>
+        <li>Available in Any Language</li>
+        <li>Share on WhatsApp</li>
+      </ul>
+    </div>
+
+    <div class="cta">
+      <div class="lbl">CONTACT US</div>
+      <div class="phone-no">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+        75919 80626
+      </div>
+      <div class="sub">Call or WhatsApp to book your website</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
